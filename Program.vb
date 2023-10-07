@@ -12,7 +12,6 @@ Module Module1
     Public Hits2 As Integer = 0
     Public Ship As String
     Public player As Integer = 1
-    Public go As Integer = 1
     Public winner1 = 0
     Public winner2 = 0
     Public yesno As Integer = 0
@@ -27,6 +26,102 @@ Module Module1
                 Board2(x, y) = "~"
             Next
         Next
+        Board1(0, 0) = " "
+        Board2(0, 0) = " "
+        Positions1(0, 0) = " "
+        Positions2(0, 0) = " "
+        Board1(1, 0) = 1
+        Board1(2, 0) = 2
+        Board1(3, 0) = 3
+        Board1(4, 0) = 4
+        Board1(5, 0) = 5
+        Board1(6, 0) = " "
+        Board2(1, 0) = 1
+        Board2(2, 0) = 2
+        Board2(3, 0) = 3
+        Board2(4, 0) = 4
+        Board2(5, 0) = 5
+        Board2(6, 0) = " "
+        Positions1(1, 0) = 1
+        Positions1(2, 0) = 2
+        Positions1(3, 0) = 3
+        Positions1(4, 0) = 4
+        Positions1(5, 0) = 5
+        Positions1(6, 0) = " "
+        Positions2(1, 0) = 1
+        Positions2(2, 0) = 2
+        Positions2(3, 0) = 3
+        Positions2(4, 0) = 4
+        Positions2(5, 0) = 5
+        Positions2(6, 0) = " "
+        Board1(0, 1) = 1
+        Board1(0, 2) = 2
+        Board1(0, 3) = 3
+        Board1(0, 4) = 4
+        Board1(0, 5) = 5
+        Board1(0, 6) = " "
+        Board2(0, 1) = 1
+        Board2(0, 2) = 2
+        Board2(0, 3) = 3
+        Board2(0, 4) = 4
+        Board2(0, 5) = 5
+        Board2(0, 6) = " "
+        Positions1(0, 1) = 1
+        Positions1(0, 2) = 2
+        Positions1(0, 3) = 3
+        Positions1(0, 4) = 4
+        Positions1(0, 5) = 5
+        Positions1(0, 6) = " "
+        Positions2(0, 1) = 1
+        Positions2(0, 2) = 2
+        Positions2(0, 3) = 3
+        Positions2(0, 4) = 4
+        Positions2(0, 5) = 5
+        Positions2(0, 6) = " "
+        Board1(1, 6) = " "
+        Board2(1, 6) = " "
+        Positions1(1, 6) = " "
+        Positions2(1, 6) = " "
+        Board1(2, 6) = " "
+        Board2(2, 6) = " "
+        Positions1(2, 6) = " "
+        Positions2(2, 6) = " "
+        Board1(3, 6) = " "
+        Board2(3, 6) = " "
+        Positions1(3, 6) = " "
+        Positions2(3, 6) = " "
+        Board1(4, 6) = " "
+        Board2(4, 6) = " "
+        Positions1(4, 6) = " "
+        Positions2(4, 6) = " "
+        Board1(5, 6) = " "
+        Board2(5, 6) = " "
+        Positions1(5, 6) = " "
+        Positions2(5, 6) = " "
+        Board1(6, 1) = " "
+        Board2(6, 1) = " "
+        Positions1(6, 1) = " "
+        Positions2(6, 1) = " "
+        Board1(6, 2) = " "
+        Board2(6, 2) = " "
+        Positions1(6, 2) = " "
+        Positions2(6, 2) = " "
+        Board1(6, 3) = " "
+        Board2(6, 3) = " "
+        Positions1(6, 3) = " "
+        Positions2(6, 3) = " "
+        Board1(6, 4) = " "
+        Board2(6, 4) = " "
+        Positions1(6, 4) = " "
+        Positions2(6, 4) = " "
+        Board1(6, 5) = " "
+        Board2(6, 5) = " "
+        Positions1(6, 5) = " "
+        Positions2(6, 5) = " "
+        Board1(6, 6) = " "
+        Board2(6, 6) = " "
+        Positions1(6, 6) = " "
+        Positions2(6, 6) = " "
         DrawShip() ' prompts users to imput their ship locations
         Menu() 'Goes to Menu subroutine
         Console.Clear() 'Clears the screen
@@ -52,7 +147,7 @@ Module Module1
             For y = 0 To 6
                 Console.Write("                              ")
                 For x = 0 To 6
-                    Console.Write(Positions1(x, y))
+                    Console.Write(Positions1(x, y) & " ")
                 Next
                 Console.WriteLine()
             Next
@@ -61,7 +156,7 @@ Module Module1
             For y = 0 To 6
                 Console.Write("                              ")
                 For x = 0 To 6
-                    Console.Write(Positions2(x, y))
+                    Console.Write(Positions2(x, y) & " ")
                 Next
                 Console.WriteLine()
             Next
@@ -70,7 +165,7 @@ Module Module1
             For y = 0 To 6
                 Console.Write("                              ")
                 For x = 0 To 6
-                    Console.Write(Board1(x, y))
+                    Console.Write(Board1(x, y) & " ")
                 Next
                 Console.WriteLine()
             Next
@@ -81,7 +176,7 @@ Module Module1
             For y = 0 To 6
                 Console.Write("                              ")
                 For x = 0 To 6
-                    Console.Write(Board2(x, y))
+                    Console.Write(Board2(x, y) & " ")
                 Next
                 Console.WriteLine()
             Next
@@ -147,12 +242,12 @@ Module Module1
     End Sub
 
     Sub Game()
-        Do Until Hits >= 9 Or Hits2 >= 9 Or winner1 = 1 Or winner2 = 1
+        Do Until Hits >= 9 Or Hits2 >= 9 ' Or winner1 = 1 Or winner2 = 1
             BoardDisplay()
             Console.WriteLine("                              Player 1: Please enter valid coordinates, (1-5)")
             XcoAsk()
             YcoAsk()
-            While Xco <= 0 Or Xco > 5 Or Yco <= 0 Or Yco > 5
+            While Xco < 1 Or Xco > 5 Or Yco < 1 Or Yco > 5
                 Console.WriteLine("                              Player 1: Please enter valid coordinates, (1-5)")
                 XcoAsk()
                 YcoAsk()
@@ -162,8 +257,16 @@ Module Module1
                 XcoAsk()
                 YcoAsk()
             End While
-            If Positions2(Xco, Yco) = "D" Or Positions2(Xco, Yco) = "S" Or Positions2(Xco, Yco) = "C" Then
-                Board1(Xco, Yco) = "X"
+            If Positions2(Xco, Yco) = "D" Then
+                Board1(Xco, Yco) = "D"
+                Hits += 1
+                yesno = 1
+            ElseIf Positions2(Xco, Yco) = "S" Then
+                Board1(Xco, Yco) = "S"
+                Hits += 1
+                yesno = 1
+            ElseIf Positions2(Xco, Yco) = "C" Then
+                Board1(Xco, Yco) = "C"
                 Hits += 1
                 yesno = 1
             ElseIf Positions2(Xco, Yco) = "~" Then
@@ -182,6 +285,7 @@ Module Module1
             yesno = 0
             If Hits >= 9 Then
                 winner1 = 1
+                Exit Do
             End If
             BoardDisplay()
             Console.WriteLine("                              Player 2: Please enter valid coordinates, (1-5)")
@@ -221,10 +325,10 @@ Module Module1
             yesno = 0
             If Hits2 >= 9 Then
                 winner2 = 1
+                Exit Do
             End If
         Loop
         Console.Clear()
-
         If winner1 = 1 Then
             BoardDisplay()
             Console.WriteLine("                              Player 1 is the winner!")
@@ -271,6 +375,10 @@ Module Module1
         Do
             Console.WriteLine("                              enter x and y coordinate e.g '3, 4'")
             userinput = Console.ReadLine()
+            While Not ValidateInput(userinput)
+                Console.WriteLine("                              enter VALID x and y coordinate e.g '3, 4'")
+                userinput = Console.ReadLine()
+            End While
             Xco = userinput.Split(",")(0)
             Yco = userinput.Split(",")(1)
             If Positions1(Xco, Yco) = "~" Then
@@ -296,6 +404,10 @@ Module Module1
         Do
             Console.WriteLine("                              enter x and y coordinate e.g '3, 4'")
             userinput = Console.ReadLine()
+            While Not ValidateInput(userinput)
+                Console.WriteLine("                              enter VALID x and y coordinate e.g '3, 4'")
+                userinput = Console.ReadLine()
+            End While
             Xco = userinput.Split(",")(0)
             Yco = userinput.Split(",")(1)
             If Positions1(Xco, Yco) = "~" Then
@@ -316,7 +428,7 @@ Module Module1
             BoardDisplay()
         Loop Until ships = 4
         Console.WriteLine("                              Are you happy with this result (i dont care)")
-        Console.ReadLine()
+        Console.ReadKey()
         Console.Clear()
         ships = 0
         player = 2
@@ -325,6 +437,10 @@ Module Module1
         Do
             Console.WriteLine("                              enter x and y coordinate e.g '3, 4'")
             userinput = Console.ReadLine()
+            While Not ValidateInput(userinput)
+                Console.WriteLine("                              enter VALID x and y coordinate e.g '3, 4'")
+                userinput = Console.ReadLine()
+            End While
             Xco = userinput.Split(",")(0)
             Yco = userinput.Split(",")(1)
             If Positions2(Xco, Yco) = "~" Then
@@ -350,6 +466,10 @@ Module Module1
         Do
             Console.WriteLine("                              enter x and y coordinate e.g '3, 4'")
             userinput = Console.ReadLine()
+            While Not ValidateInput(userinput)
+                Console.WriteLine("                              enter VALID x and y coordinate e.g '3, 4'")
+                userinput = Console.ReadLine()
+            End While
             Xco = userinput.Split(",")(0)
             Yco = userinput.Split(",")(1)
             If Positions2(Xco, Yco) = "~" Then
@@ -380,26 +500,25 @@ Module Module1
                 userinput = Console.ReadLine()
             End While
             Xco = userinput.Split(",")(0)
-                Yco = userinput.Split(",")(1)
-                If Positions2(Xco, Yco) = "~" Then
-                    If ships = 0 Then
+            Yco = userinput.Split(",")(1)
+            If Positions2(Xco, Yco) = "~" Then
+                If ships = 0 Then
+                    Positions2(Xco, Yco) = "C"
+                    ships += 1
+                Else
+                    If checklawgamboC2() Then
                         Positions2(Xco, Yco) = "C"
                         ships += 1
                     Else
-                        If checklawgamboC2() Then
-                            Positions2(Xco, Yco) = "C"
-                            ships += 1
-                        Else
-                            'tannesh
-                        End If
                     End If
-                Else
-                    Console.WriteLine("                              You cannot overlap ships.")
                 End If
-                BoardDisplay()
+            Else
+                Console.WriteLine("                              You cannot overlap ships.")
+            End If
+            BoardDisplay()
         Loop Until ships = 4
         Console.WriteLine("                              Are you happy with this result (i dont care)")
-        Console.ReadLine()
+        Console.ReadKey()
         Console.Clear()
         player = 3
     End Sub
@@ -458,7 +577,11 @@ Module Module1
             If str.Split(",").Length = 2 Then
                 Try
                     If Integer.TryParse(str.Split(",")(0).Trim(), myInt) And Integer.TryParse(str.Split(",")(1).Trim(), myInt) Then
-                        retVal = True
+                        If myInt > 0 And myInt < 6 Then
+                            retVal = True
+                        Else
+                            retVal = False
+                        End If
                     Else
                         retVal = False
                     End If
@@ -473,7 +596,4 @@ Module Module1
         End If
         Return retVal
     End Function
-
-
-
 End Module
