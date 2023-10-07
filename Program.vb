@@ -197,11 +197,19 @@ Module Module1
                 XcoAsk2()
                 YcoAsk2()
             End While
-            If Positions1(Xco, Yco) = "D" Or Positions1(Xco, Yco) = "S" Or Positions1(Xco, Yco) = "C" Then
-                Board2(Xco, Yco) = "X"
+            If Positions1(Xco, Yco) = "D" Then
+                Board2(Xco, Yco) = "D"
                 Hits2 += 1
                 yesno = 1
-            Else
+            ElseIf Positions1(Xco, Yco) = "S" Then
+                Board2(Xco, Yco) = "S"
+                Hits2 += 1
+                yesno = 1
+            ElseIf Positions1(Xco, Yco) = "C" Then
+                Board2(Xco, Yco) = "C"
+                Hits2 += 1
+                yesno = 1
+            ElseIf Positions1(Xco, Yco) = "~" Then
                 Board2(Xco, Yco) = "O"
             End If
             Console.Clear()
